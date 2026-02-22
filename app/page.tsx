@@ -2,6 +2,7 @@
 
 import { AnimatePresence, motion, useInView, useScroll, useTransform } from "framer-motion";
 import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
+import Link from "next/link";
 
 type NavLink = {
   label: string;
@@ -682,13 +683,13 @@ export default function Home() {
 
           <nav className="hidden items-center gap-8 md:flex">
             {navLinks.map((link) => (
-              <a key={link.label} href={link.href} className="nav-link text-sm text-[var(--text-secondary)]">
+              <Link key={link.label} href={link.href} className="nav-link text-sm text-[var(--text-secondary)]">
                 {link.label}
-              </a>
+              </Link>
             ))}
-            <a href="#join" className="btn-primary text-sm">
+            <Link href="#join" className="btn-primary text-sm">
               Join early access
-            </a>
+            </Link>
           </nav>
 
           <button
@@ -729,19 +730,19 @@ export default function Home() {
               </div>
               <div className="space-y-6">
                 {navLinks.map((link) => (
-                  <a
+                  <Link
                     key={link.label}
                     href={link.href}
                     className="block text-lg text-[var(--text-primary)]"
                     onClick={() => setMenuOpen(false)}
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 ))}
               </div>
-              <a href="#join" className="btn-primary mt-auto text-center" onClick={() => setMenuOpen(false)}>
+              <Link href="#join" className="btn-primary mt-auto text-center" onClick={() => setMenuOpen(false)}>
                 Join early access
-              </a>
+              </Link>
             </motion.aside>
           </>
         )}
@@ -793,15 +794,15 @@ export default function Home() {
                 transition={{ duration: 0.5, ease: easeOut }}
                 className="mt-9 flex flex-wrap items-center gap-5"
               >
-                <a href="#join" className="btn-primary">
+                <Link href="#join" className="btn-primary">
                   Get early access
-                </a>
-                <a href="#how-it-works" className="inline-flex items-center gap-2 text-sm text-[var(--text-primary)]">
-                  <span>See how it works</span>
+                </Link>
+                <Link href="/sign-in" className="inline-flex items-center gap-2 text-sm text-[var(--text-primary)]">
+                  <span>Open live console</span>
                   <svg viewBox="0 0 16 16" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="1.6">
                     <path d="M2.5 8h10m0 0L8.7 4.2M12.5 8l-3.8 3.8" />
                   </svg>
-                </a>
+                </Link>
               </motion.div>
             </motion.div>
 
